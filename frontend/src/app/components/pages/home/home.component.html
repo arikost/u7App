@@ -1,0 +1,10 @@
+  <div class="car-list">
+    <ul class="car-item" *ngFor="let car of cars">
+      <p class="car">{{car.id}} {{car.manufacturer}}</p>
+      <li class="order-container">
+      <p class="order" *ngFor="let order of car.schedule">
+        {{order.username}} {{order.timeStart}}:00 to {{order.timeEnd}}:00
+      </p>
+      </li>
+    </ul>
+  </div>
