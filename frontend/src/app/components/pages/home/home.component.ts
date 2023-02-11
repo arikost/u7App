@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CarsService } from 'src/app/services/cars.service';
 import { Car } from 'src/app/shared/models/car';
 
@@ -10,20 +11,15 @@ import { Car } from 'src/app/shared/models/car';
 export class HomeComponent implements OnInit{
 
   cars:Car[] = [];
-  timeLine:string[] = [];
   constructor(private carService: CarsService){
-    this.cars = carService.getAll();
-    for(let t=0; t<24;t++){
-      if(t<10){
-        this.timeLine.push(`0${t}:00`)
-      }
-      else{
-        this.timeLine.push(`${t}:00`)
-      }
-    }
+    let carsObservable:Observable<Car[]>;
+    carsObservable = carService.getAll();
+    carsObservable.subscribe((serverCars) =>{
+      this.cars = serverCars;
+    })
   }
   ngOnInit(): void {
-
+    console.log('cars',this.cars)
   }
 
 }

@@ -1,15 +1,5 @@
-.time-line{
-  margin-top: 5rem ;
-  margin-left: 20rem;
-  margin-right: 10rem;
-  align-self: center;
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
-}
 .car-list{
-  margin-left: 13rem;
-  margin-top: 2rem;
+  margin: 2rem 2rem;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -23,8 +13,7 @@ p{
 .car-item{
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: antiquewhite;
   justify-content: flex-start;
 }

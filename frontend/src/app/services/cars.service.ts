@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { car_list } from 'src/data';
+import { Observable } from 'rxjs';
+import { CARS_URL } from '../shared/constants/urls';
 import { Car } from '../shared/models/car';
 
 @Injectable({
@@ -7,9 +9,9 @@ import { Car } from '../shared/models/car';
 })
 export class CarsService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  getAll():Car[]{
-    return car_list;
+  getAll(): Observable<Car[]> {
+    return this.http.get<Car[]>(CARS_URL);
   }
 }
